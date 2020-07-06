@@ -32,7 +32,7 @@ pipeline {
                               --replicas 1 \
                               --network app-net \
                               --endpoint-mode dnsrr \
-                              --config source=redis-conf,target=/etc/redis/redis.conf,mode=0400 \
+                              --config source=redis.conf,target=/etc/redis/redis.conf,mode=0400 \
                               --mount type=bind,src=/var/lib/jenkins/workspace/${JOB_NAME},dst=/usr/local/etc/redis/,ro=true \
                               redis:6.0.5'
 
