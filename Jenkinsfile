@@ -31,6 +31,7 @@ pipeline {
                               --mode replicated \
                               --replicas 1 \
                               --network app-net \
+                              --publish :6379 \
                               --endpoint-mode dnsrr \
                               --mount type=bind,src=/var/lib/jenkins/workspace/${JOB_NAME},dst=/usr/local/etc/redis/,ro=true \
                               redis:6.0.5'
