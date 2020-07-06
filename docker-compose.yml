@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+
+  redis:
+    build:
+      context: ./
+    image: redis:6.0.5
+    container_name: redis
+    command: redis-server --requirepass 12345 --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - app-data:/data
+    restart: always
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    external: true
+
+volumes:
+  app-data:
