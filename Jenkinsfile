@@ -62,9 +62,8 @@ pipeline {
                         sh "echo $e; exit 1"
                     }
 
-                    sh """
-                    docker exec -i $(docker container ls | grep mock | cut -d" " -f1) php ./var/www/docker/mock/login-redis.php
-                    """
+                    sh 'CID=$(docker container ls | grep mock | cut -d" " -f1)'
+                    sh 'docker exec -i ${CID} php ./var/www/docker/mock/login-redis.php'
 
                     sh 'docker service rm mock || true'
                 }
