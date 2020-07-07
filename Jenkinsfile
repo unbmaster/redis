@@ -45,33 +45,33 @@ pipeline {
         }
 
 
-//         stage('Mock data') {
-//             steps{
-//
-//                 script {
-//                     sh 'docker service rm mock || true'
-//                     try {
-//                         sh 'docker service create \
-//                               --name mock \
-//                               --mode replicated \
-//                               --replicas 1 \
-//                               --network app-net \
-//                               --endpoint-mode dnsrr \
-//                               unbmaster/mock:1.0'
-//                     } catch (Exception e) {
-//                         sh "echo $e; exit 1"
-//                     }
-//
-//                     sleep 5
-//
-//
-//                     sh 'docker exec -i $(docker container ls | grep mock | cut -d" " -f1) php ./var/www/docker/mock/login-redis.php'
-//
-//                     sleep 5
-//                     sh 'docker service rm mock || true'
-//                 }
-//             }
-//         }
+        stage('Mock data') {
+            steps{
+
+                script {
+                    sh 'docker service rm mock || true'
+                    try {
+                        sh 'docker service create \
+                              --name mock \
+                              --mode replicated \
+                              --replicas 1 \
+                              --network app-net \
+                              --endpoint-mode dnsrr \
+                              unbmaster/mock:1.0'
+                    } catch (Exception e) {
+                        sh "echo $e; exit 1"
+                    }
+
+                    sleep 5
+
+
+                    sh 'docker exec -i $(docker container ls | grep mock | cut -d" " -f1) php ./var/www/docker/mock/login-redis.php'
+
+                    sleep 5
+                    sh 'docker service rm mock || true'
+                }
+            }
+        }
 
 
 
