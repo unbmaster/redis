@@ -1,0 +1,30 @@
+{
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.1",
+        "nyholm/psr7": "^1.2",
+        "nyholm/psr7-server": "^0.4.1",
+        "guzzlehttp/psr7": "^1.6",
+        "http-interop/http-factory-guzzle": "^1.0",
+        "laminas/laminas-diactoros": "^2.3",
+        "php-amqplib/php-amqplib": "^2.11",
+        "predis/predis": "^1.1",
+        "fzaninotto/faker": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Slim\\": "Slim",
+            "Config\\": "src/config",
+            "Core\\": "src/core",
+            "Test\\": "src/test",
+            "Domain\\": "src/app/Domain",
+            "Application\\": "src/app/Application",
+            "Infrastructure\\": "src/app/Infrastructure",
+            "Controller\\": "src/app/UI/Controller",
+            "View\\": "src/app/UI/View"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
