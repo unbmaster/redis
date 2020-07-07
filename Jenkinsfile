@@ -33,7 +33,7 @@ pipeline {
                               --network app-net \
                               --endpoint-mode dnsrr \
                               --mount type=bind,src=/var/lib/jenkins/workspace/${JOB_NAME},dst=/usr/local/etc/redis/,ro=true \
-                              redis:6.0.5'
+                              unbmaster/redis:1.0'
 
                     } catch (Exception e) {
                         sh "echo $e; exit 1"

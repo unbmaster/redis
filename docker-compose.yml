@@ -5,7 +5,7 @@ services:
   redis:
     build:
       context: ./
-    image: redis:6.0.5
+    image: unbmaster/redis:1.0
     container_name: redis
     command: redis-server --requirepass 12345 --appendonly yes
     ports:
